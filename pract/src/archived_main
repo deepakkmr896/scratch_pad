@@ -1,0 +1,92 @@
+============ Multi Threading / Concurrency ======
+
+        /*TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+         to see how IntelliJ IDEA suggests fixing it.*/
+
+//        for (int i = 1; i <= 5; i++) {
+//            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
+//            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
+//            System.out.println("i = " + i);
+//            Queue<Integer> tes = new PriorityQueue<>();
+//        }
+
+//        List<Employee> list = new ArrayList<>();
+//        list.add(new Employee(1, "DK"));
+//        list.add(new Employee(2, "JK"));
+//        list.add(new Employee(2, "BK"));
+//        list.add(new Employee(2, "CK"));
+////        Collections.sort(list);
+//        list.sort(Comparator.comparing(Employee::getName));
+//        list.stream().sorted(Comparator.comparing(Employee::getName)).forEach(System.out::println);
+//        System.out.println(list);
+
+
+//        Thread oddThread = new Thread(() -> {
+//            for (int i = 1; i < 10; i+=2) {
+//                System.out.println(Thread.currentThread().getName());
+//                System.out.println(i);
+//            }
+//        }, "oddThread");
+//
+//        System.out.println(Thread.currentThread().getName());
+//        Thread evenThread = new EvenThread("evenThread");
+//        evenThread.start();
+//        oddThread.start();
+//        System.out.println(Thread.currentThread().getName());
+//        System.out.println("Finish");
+
+===== THREAD ======
+
+CommonClass commonClass = new CommonClass();
+
+Thread bankThread1 = new Thread(() -> {
+    try {
+        commonClass.deposit(4000);
+    } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+}, "thread 1");
+
+Thread bankThread2 = new Thread(() -> {
+    try {
+        commonClass.withdraw(3000);
+    } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+}, "thread 2");
+
+bankThread1.start();
+bankThread2.start();
+
+
+    ======== Generic / Functional Programming=======
+
+        List<String> list = new ArrayList<>(List.of("a", "b", "c", "d", "e", "f", "g", "h"));
+//        list.add("i");
+
+        list.forEach(System.out::println);
+
+        // this will be the implementation of any BiFunction
+        BiFunction<MethodReference, Integer, String> test = MethodReference::testThis;
+
+        // execution of above
+        System.out.println(test.apply(new MethodReference(), 1));
+
+
+//        BinaryOperator<String> p1 = ();
+
+        Function<Integer, String> fn = (a) -> "This is " + a;
+        //
+
+        // inner will be executed first, final output should be Integer and input will be String
+        Function<Integer, String> res = fn.compose((Integer a) -> 5 + a);
+
+        System.out.println(res.apply(6));
+
+        // inside function input will be string, res will be the final Function return type String output of the last call, and input will be the input of the fn Integer
+        Function<Integer, String> res2 = fn.andThen((String a) -> "I am the Mind-blowing and Believer" + a);
+
+        System.out.println(res2.apply(5));
+
+
+============ Trie DS =====
