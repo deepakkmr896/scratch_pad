@@ -33,7 +33,7 @@ public class DSU {
 
     find(0)
 
-    0 != 1
+    0 != 3
     parent[0] = 3
     parent[1] = 3
     3 == 3
@@ -64,8 +64,13 @@ public class DSU {
         } else if (rank[yRoot] < rank[xRoot]) {
             parent[yRoot] = xRoot;
         }  else {
-            parent[xRoot] = yRoot;
-            rank[yRoot]++;
+            if (parent[yRoot]  > parent[xRoot]) {
+                parent[xRoot] = yRoot;
+                rank[yRoot]++;
+            } else {
+                parent[yRoot] = xRoot;
+                rank[xRoot]++;
+            }
         }
     }
 }

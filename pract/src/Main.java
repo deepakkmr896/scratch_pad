@@ -1,25 +1,41 @@
+import design_pattern.abstract_factory.*;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        TrieExercise.Node root = new TrieExercise.Node();
-        TrieExercise.insertTrieWord(root, "apple");
-        TrieExercise.insertTrieWord(root, "cat");
-        TrieExercise.insertTrieWord(root, "ball");
-        TrieExercise.insertTrieWord(root, "zebra");
-        TrieExercise.insertTrieWord(root, "elephant");
-        TrieExercise.insertTrieWord(root, "dog");
+        ComputeMachine customComputer_1 = new ComputeMachine
+                .ComputeMachineBuilder()
+                .monitor(new LargeMonitor().create())
+                .button(new QuertyButton().create())
+                .build();
 
-        List<String> res = new ArrayList<>();
+        ComputeMachine customComputer_2 = new ComputeMachine
+                .ComputeMachineBuilder()
+                .monitor(new SmallMonitor().create())
+                .button(new TraditionalButton().create())
+                .build();
 
-        // print, it will print in sorted form, time complexity - O(L), L = length of all words
-        TrieExercise.printWords(root, -1, new StringBuilder(), res);
-        System.out.println(res);
-
-        // Searching, time complexity - O(L), L = length of input word
-        System.out.println(TrieExercise.searchWord(root, "hello"));
-        System.out.println(TrieExercise.searchWord(root, "apple"));
-
+        System.out.println(customComputer_1);
+        System.out.println(customComputer_2);
     }
 }
+
+//class Animal {
+//    public Animal totalLegs() {
+//        return this;
+//    }
+//}
+//
+//class Bird extends Animal {
+//    @Override
+//    public Bird totalLegs() {
+//        return (Bird) super.totalLegs();
+//    }
+//}

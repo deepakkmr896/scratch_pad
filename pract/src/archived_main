@@ -90,3 +90,109 @@ bankThread2.start();
 
 
 ============ Trie DS =====
+
+
+======= Generics ======
+
+//        TrieExercise.Node root = new TrieExercise.Node();
+//        TrieExercise.insertTrieWord(root, "apple");
+//        TrieExercise.insertTrieWord(root, "cat");
+//        TrieExercise.insertTrieWord(root, "ball");
+//        TrieExercise.insertTrieWord(root, "zebra");
+//        TrieExercise.insertTrieWord(root, "elephant");
+//        TrieExercise.insertTrieWord(root, "dog");
+//
+//        List<String> res = new ArrayList<>();
+//
+//        // print, it will print in sorted form, time complexity - O(L), L = length of all words
+//        TrieExercise.printWords(root, -1, new StringBuilder(), res);
+//        System.out.println(res);
+//
+//        // Searching, time complexity - O(L), L = length of input word
+//        System.out.println(TrieExercise.searchWord(root, "hello"));
+//        System.out.println(TrieExercise.searchWord(root, "apple"));
+
+        // Rank is to identify the major item out of given options
+        // parent stores the value belonging to same group
+
+//        DSU dsu = new DSU(5);
+//        dsu.union(0, 1);
+//        dsu.union(2, 3);
+//        dsu.union(3, 0);
+//        dsu.union(1, 4);
+//        System.out.println("parent:" + Arrays.toString(dsu.parent));
+//        System.out.println("rank:" + Arrays.toString(dsu.rank));
+//
+//        DSU_Pract dsu2 = new DSU_Pract(5);
+//        dsu2.union(0, 1);
+//        dsu2.union(2, 3);
+//        dsu2.union(3, 0);
+//        dsu2.union(1, 4);
+//        System.out.println("parent:" + Arrays.toString(dsu2.parent));
+//        System.out.println("rank:" + Arrays.toString(dsu2.rank));
+
+        // implementation of the Function -> apply method
+//        Function<Integer, Float> fun = (x) -> x / 2.3f;
+//
+//        Float res = fun.apply(6);
+//        System.out.println(res);
+//
+//        // Predicate / Supplier / Consumer
+//
+//        Predicate<String> predicate = new Predicate<String>() {
+//            @Override
+//            public boolean test(String s) {
+//                return s.equals("Hello");
+//            }
+//        };
+//
+//        System.out.println(predicate.test("Hello"));
+//
+//        // supplier
+//        Supplier<String> supplier = () -> "Hello There!";
+//        System.out.println(supplier.get());
+//
+//        // Consumer
+//        StringBuilder str = new StringBuilder("Hello");
+//        Consumer<String> consumer = s -> {
+//            String test = str.toString() + s;
+//            str.append(test);
+//        };
+//        consumer.accept(" Bro");
+//        System.out.println(str);
+//
+//        Consumer<String> cons_1 = s -> System.out.println("Hello" + s);
+//        Consumer<String> cons_2 = s -> System.out.println("Post" + s);
+//
+//        Consumer<String> res_2 = cons_1.andThen(cons_2);
+//        res_2.accept("DK");
+
+//        Function<Integer, String> composedFn = (a) -> "This is " + a; // <V, T>
+//        // returns of the composedFn = String, that would be the input of this fun
+//        Function<String, Boolean> thisFun = str -> str.contains("This is 20"); // <T, R>
+//
+//        // now return of the thisFun will be the final Output type
+//        // now the final fun apply return type -> <V, R> = <Integer, Boolean>
+//
+//        Function<Integer, Boolean> newFun = thisFun.compose(composedFn); // <V, R>
+//
+//        System.out.println(newFun.apply(20));
+//
+//        // =========
+//        Function<Integer, String> thisFun2 = a -> "This is " + a; // <T, R>
+//
+//        Function<String, Boolean> thenAppFun = (str) -> str.contains("This is 20"); // <R, V>
+//
+//        Function<Integer, Boolean> newFun2 = thisFun2.andThen(thenAppFun); // <T, V>
+//
+//        System.out.println(newFun2.apply(30));
+//        System.out.println(newFun2.apply(20));
+//
+//
+//        List<? super Integer> list = Arrays.asList(2, 3, 3.5);
+//
+//        for (Object o: list) {
+//            System.out.println(o);
+//        }
+============ ends ======
+
