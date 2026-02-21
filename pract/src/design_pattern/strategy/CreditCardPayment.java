@@ -10,7 +10,7 @@ public class CreditCardPayment extends PaymentMethod {
 
     @Override
     boolean validate() {
-        return !this.instrument.getUserName().isBlank() && !this.instrument.getPassword().isBlank();
+        return !this.getInstrument().getUserName().isBlank() && !this.getInstrument().getPassword().isBlank();
     }
 
     @Override
@@ -22,6 +22,6 @@ public class CreditCardPayment extends PaymentMethod {
 
         status = Status.SUCCESS;
 
-        return new PaymentResult(status, this.instrument);
+        return new PaymentResult(status, this.getInstrument());
     }
 }

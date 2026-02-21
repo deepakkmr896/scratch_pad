@@ -7,12 +7,12 @@ public class PaymentService {
         boolean isValid = paymentMethod.validate();
 
         if (!isValid) {
-            return new PaymentResult(Status.FAILED, paymentMethod.instrument);
+            return new PaymentResult(Status.FAILED, paymentMethod.getInstrument());
         }
         try {
             return paymentMethod.pay();
         } catch (Exception e) {
-            return new PaymentResult(Status.SERVER_ERROR, paymentMethod.instrument);
+            return new PaymentResult(Status.SERVER_ERROR, paymentMethod.getInstrument());
         }
     }
 }

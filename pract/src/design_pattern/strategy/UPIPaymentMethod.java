@@ -10,12 +10,12 @@ public class UPIPaymentMethod extends PaymentMethod {
     @Override
     boolean validate() {
         boolean isValid = false;
-        isValid = UPIPaymentMethod.isValidUPIID(this.instrument.getUpiId());
+        isValid = UPIPaymentMethod.isValidUPIID(this.getInstrument().getUpiId());
         if (!isValid) {
             return false;
         }
 
-        return UPIPaymentMethod.isValidAmount(this.instrument.getAmount());
+        return UPIPaymentMethod.isValidAmount(this.getInstrument().getAmount());
     }
 
     @Override
@@ -27,7 +27,7 @@ public class UPIPaymentMethod extends PaymentMethod {
 
         status = Status.SUCCESS;
 
-        return new PaymentResult(status, this.instrument);
+        return new PaymentResult(status, this.getInstrument());
     }
 
     private static boolean isValidUPIID(String upiId) {
